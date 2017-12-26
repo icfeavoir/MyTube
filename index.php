@@ -10,6 +10,7 @@
 
 	parse_str(urldecode($_POST['data'] ?? ""), $data);
 	$_POST['token'] = '';
+	$_POST['my_id'] = 0;
 
 
 	if(!isset($_POST['token']) || !isset($_POST['endpoint']) || !isset($_POST['my_id'])){
