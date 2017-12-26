@@ -10,8 +10,8 @@
 		public function download(){
 			if(!isset($this->data['url']))
 				return ['error'=>'No url provided'];
-			if(!is_file($_POST['url'].'.mp3')){
-				exec('/usr/local/bin/youtube-dl --extract-audio --audio-format mp3 --output "%(id)s.%(ext)s" https://youtu.be/'.$_POST['url']);
+			if(!is_file($this->data['url'].'.mp3')){
+				exec('/usr/local/bin/youtube-dl --extract-audio --audio-format mp3 --output "%(id)s.%(ext)s" https://youtu.be/'.$this->data['url']);
 			}
 			return ['success'=>true];
 		}
