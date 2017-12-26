@@ -38,6 +38,6 @@
 					}
 				}
 			}
-			return [$videos];
+			return $videos;
 		}
 	}
