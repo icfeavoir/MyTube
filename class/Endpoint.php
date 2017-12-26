@@ -7,7 +7,7 @@
 			$this->data = $data;
 		}
 
-		public function downloadMusic(){
+		public function download(){
 			if(!isset($this->data['url']))
 				return ['error'=>'No url provided'];
 			if(!is_file($_POST['url'].'.mp3')){
