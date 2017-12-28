@@ -1,7 +1,7 @@
 <?php
 	require_once('Table.php');
 
-	class PlaylistItems extends Table{
+	class PlaylistItem extends Table{
 		public $item_id;
 		public $playlist_id;
 		public $creator;
@@ -10,6 +10,6 @@
 		public $added;
 
 		public function __construct($val = []){
-			parent::__construct('PlaylistItems', $val);
+			parent::__construct('PlaylistItem', $val);
 		}
 	}

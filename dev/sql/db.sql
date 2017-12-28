@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   PRIMARY KEY (`user_id`)
 );
 
-CREATE TABLE IF NOT EXISTS `Playlists` (
+CREATE TABLE IF NOT EXISTS `Playlist` (
   `playlist_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `creator` int(11) UNSIGNED NOT NULL,
   `title` varchar(50) DEFAULT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `Playlists` (
   FOREIGN KEY (`creator`) REFERENCES User(`user_id`)
 );
 
-CREATE TABLE IF NOT EXISTS `PlaylistItems` (
+CREATE TABLE IF NOT EXISTS `PlaylistItem` (
   `item_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `playlist_id` int(11) UNSIGNED NOT NULL,
   `creator` int(11) UNSIGNED NOT NULL,
@@ -27,6 +27,6 @@ CREATE TABLE IF NOT EXISTS `PlaylistItems` (
   `url` varchar(50) DEFAULT NULL,
   `added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`item_id`),
-  FOREIGN KEY (`playlist_id`) REFERENCES Playlists(`playlist_id`),
+  FOREIGN KEY (`playlist_id`) REFERENCES Playlist(`playlist_id`),
   FOREIGN KEY (`creator`) REFERENCES User(`user_id`)
 );
