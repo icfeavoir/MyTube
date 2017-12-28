@@ -19,7 +19,7 @@
 
 		public function search(){
 			if(!isset($this->data['search']))
-				return  ['error'=>'No search key word(s) provided'];
+				return ['error'=>'No search key word(s) provided'];
 
 			$videosMem = array();
 			$videos = array();
@@ -40,5 +40,19 @@
 				}
 			}
 			return $videos;
+		}
+
+		public function loadPlaylist(){
+			if(!isset($this->data['playlist_id']))
+				return ['error'=>'No playlist id'];
+			$playlist_id = $this->data['playlist_id'];
+			$resp = array();
+			$resp['playlistTitle'] = (new Playlist($playlist_id))->title;
+			$playlist = array();
+			foreach ((new PlaylistItem(['playlist_id'=>$playlist_id]))->get() as $item) {
+				$playlist[$item['url']] = $item['title'];
+			}
+			$resp['playlist'] = $playlist;
+			return [$resp];
 		}
 	}
