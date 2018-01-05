@@ -23,7 +23,7 @@
 
 			$videosMem = array();
 			$videos = array();
-			$ch = curl_init('https://www.youtube.com/results?search_query='.$this->data['search'].'&pbj=1');
+			$ch = curl_init('https://www.youtube.com/results?search_query='.urlencode($this->data['search']).'&pbj=1');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$res = curl_exec($ch);
 			$res = explode('/watch?v=', $res);
