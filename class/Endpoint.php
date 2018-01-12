@@ -12,7 +12,7 @@
 				return ['error'=>'No url provided'];
 			$dir = 'src/music/';
 			if(!is_file($dir.$this->data['url'].'.mp3')){
-				exec('/usr/local/bin/youtube-dl --extract-audio --audio-format mp3 --output '.$dir.'"%(id)s.%(ext)s" https://youtu.be/'.$this->data['url']);
+				exec(YOUTUBE_DL.'youtube-dl --extract-audio --audio-format mp3 --output '.$dir.'"%(id)s.%(ext)s" https://youtu.be/'.$this->data['url']);
 			}
 			return array(['success'=>true]);
 		}

@@ -7,5 +7,4 @@
 	define('DATABASE', '');
 	define('DB_PORT', '');
 
-	define('API_PUSH', '');
-	
+	define('YOUTUBE_DL', '/usr/local/bin/');	
